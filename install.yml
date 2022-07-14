@@ -15,7 +15,7 @@
     - name: Launch a workflow with a timeout of 10 seconds
       tower_workflow_launch:
         workflow_template: "Refresh_Templates_Workflow_EMEA✅"
-        limit: "{{ item }}"
+        limit: "{{ item.stdout }}"
         wait: true
       with_items: "{{r.results}}"
     #  loop:
