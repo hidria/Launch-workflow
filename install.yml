@@ -1,6 +1,6 @@
 ---
 - name: Launch Workflow
-  host: localhost
+  hosts: localhost
   tasks:
     - name: Launch a workflow with a timeout of 10 seconds
       tower_workflow_launch:
