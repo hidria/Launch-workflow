@@ -6,5 +6,5 @@
       tower_workflow_launch:
         workflow_template: "Refresh_Templates_Workflow_EMEA✅"
         limit: "emea"
-      wait: true
+        wait: true
 
