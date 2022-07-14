@@ -3,27 +3,19 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: show all the hosts matching the pattern, i.e. all but the group www
+    - name: Get all the hosts matching with the pattern
       ansible.builtin.debug:
         msg: "{{ item }}"
       with_inventory_hostnames:
-        - emea
-      register: "r"
-
-    - name: show all the hosts matching the pattern, i.e. all but the group www
-      ansible.builtin.debug:
-        msg: "{{ r }}"
-      
+        - "{{ region }}"
+      register: "hosts"
 
 
-    - name: Launch a workflow with a timeout of 10 seconds
+
+    - name: Launch a Update workflow
       tower_workflow_launch:
-        workflow_template: "Refresh_Templates_Workflow_EMEA✅"
+        workflow_template: "Refresh_Templates_Workflow✅"
         limit: "{{ item.item }}"
         wait: true
-      with_items: "{{r.results}}"
-    #  loop:
-     #   - Gold-CentOS7_FR
-      #  - Gold-CentOS8_FR
-       # - Gold-ubuntu18.04_FR
+      with_items: "{{hosts.results}}"
 
