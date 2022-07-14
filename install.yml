@@ -3,13 +3,21 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Launch a workflow with a timeout of 10 seconds
-      tower_workflow_launch:
-        workflow_template: "Refresh_Templates_Workflow_EMEA✅"
-        limit: "{{ item }}"
-        wait: true
-      loop:
-        - Gold-CentOS7_FR
-        - Gold-CentOS8_FR
-        - Gold-ubuntu18.04_FR
+    - name: show all the hosts matching the pattern, i.e. all but the group www
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_inventory_hostnames:
+        - emea
+
+
+
+   # - name: Launch a workflow with a timeout of 10 seconds
+    #  tower_workflow_launch:
+     #   workflow_template: "Refresh_Templates_Workflow_EMEA✅"
+      #  limit: "{{ item }}"
+   #     wait: true
+    #  loop:
+     #   - Gold-CentOS7_FR
+      #  - Gold-CentOS8_FR
+       # - Gold-ubuntu18.04_FR
 
