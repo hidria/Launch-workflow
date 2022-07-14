@@ -6,6 +6,10 @@
     - name: Launch a workflow with a timeout of 10 seconds
       tower_workflow_launch:
         workflow_template: "Refresh_Templates_Workflow_EMEA✅"
-        limit: emea
+        limit: "{{ items }}"
         wait: true
+      loop:
+        - Gold-CentOS7_FR
+        - Gold-CentOS8_FR
+        - Gold-ubuntu18.04_FR
 
