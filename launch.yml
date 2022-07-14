@@ -1,5 +1,5 @@
 ---
-- name: Launch Workflow
+- name: Launch Workflow1
   host: localhost
   tasks:
     - name: Launch a workflow with a timeout of 10 seconds
