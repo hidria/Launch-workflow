@@ -1,0 +1,19 @@
+#seven_days_epoch: "{{ (ansible_date_time.epoch|int)+(86400*7) }}"
+#six_days_epoch: "{{ (ansible_date_time['epoch']|int)+(86400*6) }}"
+#seven_days_epoch: "{{ (ansible_date_time.epoch|int)+(86400*days|int) }}"
+#six_days_epoch: "{{ (ansible_date_time['epoch']|int)+(86400*days|int)-86400 }}"
+#date7: "{{ '%Y%m%d' | strftime(seven_days_epoch) }}"
+#date6: "{{ '%Y%m%d' | strftime(six_days_epoch) }}"
+#patch_time: "{{ '%H:%M:%S' | strftime(3600*(hours|int)) }}"
+#mail_comm_time: "{{ '%H:%M:%S' | strftime((3600*(hours|int))-(1800)) }}"
+
+patch_date: "{{ (ansible_date_time.epoch|int)+(86400*days|int) }}"
+patch_date_day_1: "{{ (ansible_date_time['epoch']|int)+(86400*days|int)-86400 }}"
+patch_date_day_7: "{{ (ansible_date_time['epoch']|int)+(86400*days|int)-604800 }}"
+
+date_0: "{{ '%Y%m%d' | strftime(patch_date) }}"
+date_1: "{{ '%Y%m%d' | strftime(patch_date_day_1) }}"
+date_7: "{{ '%Y%m%d' | strftime(patch_date_day_7) }}"
+
+patch_time: "{{ '%H:%M:%S' | strftime(3600*(hours|int)) }}"
+mail_comm_time: "{{ '%H:%M:%S' | strftime((3600*(hours|int))-(1800)) }}"
