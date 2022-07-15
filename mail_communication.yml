@@ -6,35 +6,35 @@
   tasks:
 
 
-    - command: "date "+%Y-%m-%d %H:%M-" -d "+7 days {{hours}} CET""
+    - command: "date '+%Y-%m-%d %H:%M-' -d '+7 days {{hours}} CET'"
       register: srns
       environment:
         TZ: Europe/Paris
 
 
-    - command: "date "+%H:%M" -d "{{hours}} CET 30 minutes""
+    - command: "date '+%H:%M' -d '{{hours}} CET 30 minutes'"
       register: srns30
       environment:
         TZ: Europe/Paris
 
 
-    - command: "date "+%Y-%m-%d %H:%M-" -d "+7 days {{hours}} CET""
+    - command: "date '+%Y-%m-%d %H:%M-' -d '+7 days {{hours}} CET'"
       register: rwd
       environment:
         TZ: America/Los_Angeles
 
-    - command: "date "+%H:%M" -d "{{hours}} CET 30 minutes""
+    - command: "date '+%H:%M' -d '{{hours}} CET 30 minutes'"
       register: rwd30
       environment:
         TZ: America/Los_Angeles
 
-    - command: "date "+%Y-%m-%d %H:%M-" -d "+7 days  {{hours}} CET""
+    - command: "date '+%Y-%m-%d %H:%M-' -d '+7 days  {{hours}} CET'"
       register: bei
       environment:
         TZ: Asia/Shanghai
 
 
-    - command: "date "+%H:%M" -d "{{hours}} CET 30 minutes""
+    - command: "date '+%H:%M' -d '{{hours}} CET 30 minutes'"
       register: bei30
       environment:
         TZ: Asia/Shanghai
@@ -49,7 +49,7 @@
         port: 25
         subject: "IT Maintenance: Update Golden Images"
         subtype: html
-        body: "
+        body: '
           <html>
 
           <head>
@@ -258,14 +258,14 @@
 
           </div>
 
-          <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+          <p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
 
           </div>
 
           </body>
           </html>
 
-          "
+          '
 
 
         from: itnotifications@talend.com  ( IT Change Managment)
